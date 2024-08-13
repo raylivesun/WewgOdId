@@ -1,0 +1,223 @@
+{
+    "$schema": "https://swc.rs/schema.json",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 50
+        },
+        "age": {
+            "type": "integer",
+            "minimum": 18,
+            "maximum": 100
+        },
+        "gender": {
+            "type": "string",
+            "enum": ["male", "female", "other"]
+        },
+        "address": {
+            "type": "object",
+            "properties": {
+                "street": {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 100
+                },
+                "city": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 50
+                },
+                "state": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 50
+                },
+                "country": {
+                    "type": "",
+                    "minLength": 2,
+                    "maxLength": 50,
+                    "enum": ["USA", "Canada", "Mexico"],
+                    "default": "USA",
+                    "format": "iso-country-code",
+                    "x-example": "US",
+                    "x-description": "Two-letter country code",
+                    "x-required": ["street", "city", "state", "country"],
+                    "x-pattern": "^[A-Z]{2}$",
+                    "x-minLength": 2,
+                    "x-maxLength": 2,
+                    "x-minItems": 1,
+                    "x-maxItems": 1,
+                    "x-uniqueItems": true,
+                    "x-enumNames": ["United States", "Canada", "Mexico"],
+                    "x-enumValues": ["US", "CA", "MX"],
+                    "x-exampleValues": ["US", "CA", "MX"],
+                    "x-patternProperties": {
+                        "^[A-Za-z0-9]{2,}$": {
+                            "type": "string",
+                            "minLength": 2,
+                            "maxLength": 50
+                        }
+                    },
+                    "x-minProperties": 4,
+                    "x-maxProperties": 4,
+                    "x-requiredProperties": ["street", "city", "state", "country"],
+                    "x-minContains": 1,
+                    "x-maxContains": 1,
+                    "x-containsProperties": ["street", "city", "state", "country"],
+                    "x-minPatternLength": 5,
+                    "x-maxPatternLength": 100,
+                    "x-minUniqueItems": 1,
+                    "x-maxUniqueItems": 1
+                },
+                "postalCode": {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 10,
+                    "pattern": "^[0-9]{5}(?:-[0-9]{4})?$",
+                    "x-example": "12345",
+                    "x-description": "Five-digit or nine-digit postal code",
+                    "x-required": ["street", "city", "state", "country"],
+                    "x-patternProperties": {
+                        "^[0-9]{5}(?:-[0-9]{4})?$": {
+                            "type": "string",
+                            "minLength": 5,
+                            "maxLength": 10,
+                            "pattern": "^[0-9]{5}(?:-[0-9]{4})?$"
+                        }
+                    },
+                    "x-minProperties": 4,
+                    "x-maxProperties": 4,
+                    "x-requiredProperties": ["street", "city", "state", "country"],
+                    "x-minContains": 1,
+                    "x-maxContains": 1,
+                    "x-containsProperties": ["street", "city", "state", "country"],
+                    "x-minPatternLength": 5,
+                    "x-maxPatternLength": 10,
+                    "x-minUniqueItems": 1,
+                    "x-maxUniqueItems": 1,
+                    "x-minItems": 1,
+                    "x-maxItems": 1,
+                    "x-uniqueItems": true,
+                    "x-enumNames": ["United States", "Canada", "Mexico"],
+                    "x-enumValues": ["US", "CA", "MX"],
+                    "x-exampleValues": ["US", "CA", "MX"]
+                },
+                "coordinates": {
+                    "type": "object",
+                    "properties": {
+                        "latitude": {
+                            "type": "number",
+                            "minimum": -90,
+                            "maximum": 90,
+                            "x-example": 37.7749,
+                            "x-description": "Geographic latitude",
+                            "x-required": ["street", "city", "state", "country"],
+                            "x-minItems": 1,
+                            "x-maxItems": 1,
+                            "x-uniqueItems": true,
+                            "x-enumNames": ["United States", "Canada", "Mexico"],
+                            "x-enumValues": ["US", "CA", "MX"],
+                            "x-exampleValues": ["US", "CA", "MX"]
+                        },
+                        "longitude": {
+                            "type": "number",
+                            "minimum": -180,
+                            "maximum": 180,
+                            "x-type" : "",
+                            "x-example": -122.4194,
+                            "x-description": "Geographic longitude",
+                            "x-required": ["street", "city", "state", "country"],
+                            "x-minItems": 1,
+                            "x-maxItems": 1,
+                            "x-uniqueItems": true,
+                            "x-enumNames": ["United States", "Canada", "Mexico"],
+                            "x-enumValues": ["US", "CA", "MX"],
+                            "x-exampleValues": ["US", "CA", "MX"]
+                        }
+                        },
+                        "x-minProperties": 2,
+                        "x-maxProperties": 2,
+                        "x-requiredProperties": ["street", "city", "state", "country"],
+                        "x-minContains": 1,
+                        "x-maxContains": 1,
+                        "x-containsProperties": ["street", "city", "state", "country"],
+                        "x-minPatternLength": 1,
+                        "x-maxPatternLength": 1,
+                        "x-minUniqueItems": 1,
+                        "x-maxUniqueItems": 1,
+                        "x-minItems": 1,
+                        "x-maxItems": 1,
+                        "x-uniqueItems": true,
+                        "x-enumNames": ["United States", "Canada", "Mexico"],
+                        "x-enumValues": ["US", "CA", "MX"],
+                        "x-exampleValues": ["US", "CA", "MX"]
+                    }
+                },
+                "contact": {
+                    "type": "object",
+                    "properties": {
+                        "email": {
+                            "type": "string",
+                            "format": "email",
+                            "x-example": "john.doe@example.com",
+                            "x-description": "Email address",
+                            "x-required": ["street", "city", "state", "country"],
+                            "x-minItems": 1,
+                            "x-maxItems": 1,
+                            "x-uniqueItems": true,
+                            "x-enumNames": ["United States", "Canada", "Mexico"],
+                            "x-enumValues": ["US", "CA", "MX"],
+                            "x-exampleValues": ["US", "CA", "MX"]
+                        },
+                        "phone": {
+                            "type": "string",
+                            "pattern": "^\\+?[0-9]{1,15}$",
+                            "x-example": "+1 555-5",
+                            "x-description": "Phone number",
+                            "x-required": ["street", "city", "state", "country"],
+                            "x-minItems": 1,
+                            "x-maxItems": 1,
+                            "x-uniqueItems": true,
+                            "x-enumNames": ["United States", "Canada", "Mexico"],
+                            "x-enumValues": ["US", "CA", "MX"],
+                            "x-exampleValues": ["US", "CA", "MX"]
+                        }
+                        },
+                        "x-minProperties": 2,
+                        "x-maxProperties": 2,
+                        "x-requiredProperties": ["street", "city", "state", "country"],
+                        "x-minContains": 1,
+                        "x-maxContains": 1,
+                        "x-containsProperties": ["street", "city", "state", "country"],
+                        "x-minPatternLength": 1,
+                        "x-maxPatternLength": 1,
+                        "x-minUniqueItems": 1,
+                        "x-maxUniqueItems": 1,
+                        "x-minItems": 1,
+                        "x-maxItems": 1,
+                        "x-uniqueItems": true,
+                        "x-enumNames": ["United States", "Canada", "Mexico"],
+                        "x-enumValues": ["US", "CA", "MX"],
+                        "x-exampleValues": ["US", "CA", "MX"]
+                    }
+                },
+                "x-minProperties": 1,
+                "x-maxProperties": 1,
+                "x-requiredProperties": ["street", "city", "state", "country"],
+                "x-minContains": 1,
+                "x-maxContains": 1,
+                "x-containsProperties": ["street", "city", "state", "country"],
+                "x-minPatternLength": 1,
+                "x-maxPatternLength": 1,
+                "x-minUniqueItems": 1,
+                "x-maxUniqueItems": 1,
+                "x-minItems": 1,
+                "x-maxItems": 1,
+                "x-uniqueItems": true,
+                "x-enumNames": ["United States", "Canada", "Mexico"],
+                "x-enumValues": ["US", "CA", "MX"],
+                "x-exampleValues": ["US", "CA", "MX"]
+            }
+}
